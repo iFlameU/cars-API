@@ -1,6 +1,7 @@
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.PUT;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -29,6 +30,13 @@ public class CarsResource {
     @Path("{id}")
     public Response deleteCar(@PathParam("id") int id) {
         Cars.getInstance().delete(id);
+        return Response.ok().build();
+    }
+
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response patchCar(Car car) {
+        Cars.getInstance().patch(car);
         return Response.ok().build();
     }
 }

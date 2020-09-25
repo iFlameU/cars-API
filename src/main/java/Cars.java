@@ -35,4 +35,13 @@ public class Cars {
             }
         }
     }
+
+    public void patch(Car carPatch) {
+        for (Car car : cars) {
+            if (car.getId() == carPatch.getId()) {
+                cars.set(carPatch.getId(), carPatch);
+                break;
+            }
+        }
+    }
 }
